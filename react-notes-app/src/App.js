@@ -5,7 +5,7 @@ import Header from "./Components/Header";
 
 
 
-const App = ()=>{
+const App = () => {
 
   const [notes, setNotes] = useState([
     {
@@ -30,46 +30,49 @@ const App = ()=>{
 
   const [searchText, setSearchText] = useState('');
 
-  useEffect(()=>{
+  useEffect(() => {
     const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
-    
-    if(savedNotes){
+
+    if (savedNotes) {
       setNotes(savedNotes);
     }
-    
+
   }, []);
 
-  useEffect(()=>{
-      localStorage.setItem('react-notes-app-data', JSON.stringify(notes)) 
+  useEffect(() => {
+    localStorage.setItem('react-notes-app-data', JSON.stringify(notes))
   }, [notes]);
 
-  const addNote = (text, group)=> {
-      const date = new Date();
-      const newNote ={
-        id: nanoid(),
-        text: text,
-        date: date.toLocaleDateString(),
-        group: group
-      };
+  const addNote = (text, group) => {
+    const date = new Date();
+    const newNote = {
+      id: nanoid(),
+      text: text,
+      date: date.toLocaleDateString(),
+      group: group
+    };
 
-      const newNotes = [...notes, newNote];
-      setNotes(newNotes);
+    const newNotes = [...notes, newNote];
+    setNotes(newNotes);
   }
 
-  const deleteNode = (id)=>{
-    const newNotes = notes.filter((note)=>note.id!==id);
+  const deleteNode = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id);
     setNotes(newNotes);
   }
 
 
-  return(
-    <div className="container">
-      <Header handleSearchNote={setSearchText} className="container"/>
-      <NotesList notes={notes.filter((note)=>note.text.toLowerCase().includes(searchText))} 
-                handleAddNote={addNote} 
-                handleDeleteNode={deleteNode}
-      />
+  return (
+    <div className="bg-container">
+      <div className="container">
+        <Header handleSearchNote={setSearchText} className="container" />
+        <NotesList notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))}
+          handleAddNote={addNote}
+          handleDeleteNode={deleteNode}
+        />
+      </div>
     </div>
+
   )
 }
 
