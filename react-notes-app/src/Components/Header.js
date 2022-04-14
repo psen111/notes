@@ -14,7 +14,7 @@ const Header = (props) => {
                         <input onChange={(event) => { event.preventDefault(); props.handleSearchNote(event.target.value) }} className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
 
                     </form>
-                    <Fixedsidebar isgrouped={props.isgrouped} setG={props.setGrouped} />
+                    <Fixedsidebar  isgrouped={props.isgrouped} setG={props.setGrouped} />
                 </div>
 
             </div>

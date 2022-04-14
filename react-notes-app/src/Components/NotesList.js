@@ -1,12 +1,12 @@
 import Note from "./Note.js";
 
 
-const NotesList = ({ isgrouped, notes, handleAddNote, handleDeleteNode, editNote }) => {
+const NotesList = ({ isgrouped, notes, handleAddNote, handleDeleteNode, editNote, isSorted }) => {
 
 
 
     return (
-        !isgrouped ?
+        !isgrouped && isSorted ?
             <div className="notes-list">
                 {notes.map((note) =>
 

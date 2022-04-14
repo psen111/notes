@@ -28,13 +28,12 @@ const App = () => {
   const [searchText, setSearchText] = useState('');
 
   return (
-    !grouped ?
+    !grouped?
       <div className="bg-container">
         <div className="container">
-          <Header isgrouped={grouped} setGrouped={setGroupHandler} handleSearchNote={setSearchText} className="container" />
+          <Header  isgrouped={grouped} setGrouped={setGroupHandler} handleSearchNote={setSearchText} className="container" />
 
-
-          <NotesList isgrouped={grouped} notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))}
+          <NotesList  isgrouped={grouped} notes={notes.filter((note) => note.text.toLowerCase().includes(searchText))}
             handleAddNote={notesContext.addNote}
             handleDeleteNode={notesContext.deleteNode}
             editNote={notesContext.saveNote}

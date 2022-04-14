@@ -19,11 +19,14 @@ export default class Fixedsidebar extends React.Component {
     switchGroup = () => {
 
         //toggle the sidebar if isgrouped is false
-
         this.toggleSideBar();
         this.props.setG(!this.props.isgrouped);
-
     }
+
+    sortNotes = ()=>{
+        this.toggleSideBar();
+    }
+
     render() {
 
         return (
@@ -62,7 +65,7 @@ export default class Fixedsidebar extends React.Component {
                     </button>
 
 
-                    <button className='d-inline d-flex align-items-center mb-2 sidebar-icons' >
+                    <button onClick={this.sortNotes} className='d-inline d-flex align-items-center mb-2 sidebar-icons' >
                         <BiSort className='user-icon' />
                         <small>Sort</small>
                     </button>
