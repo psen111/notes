@@ -69,7 +69,7 @@ export function AllnotesContextProvider(props) {
             colorIdx: Math.floor(Math.random() * 10)
         };
 
-        const newNotes = [...notes, newNote];
+        const newNotes = [...userAllnotes, newNote];
         setNotes(newNotes);
     }
 

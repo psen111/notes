@@ -76,7 +76,7 @@ const Note = ({ editNoteHandler, id, text, date, handleDeleteNode, group, author
             </div>
 
             <div className="note-footer">
-                <div className="note-footer-author">
+                <div className="d-flex justify-content-between">
                     <small>{date}</small>
                     <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>{author}</small>
                 </div>
