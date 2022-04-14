@@ -104,30 +104,37 @@ textarea:focus {
   outline: none;
 }
 
-.sidebar-menu{
+.sidebar-menu {
   background-color: gray;
   border: none;
   font-size: 30px;
   color: rgb(234, 229, 229);
 }
 
-.sidebar{
+.sidebar {
   background-color: #000000;
-background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
-color: white;
-padding: 10px;
+  background-image: linear-gradient(315deg, #000000 0%, #414141 74%);
+  color: white;
+  padding: 10px;
 }
 
-.user-icon{
+.user-icon {
   font-size: 30px;
   color: #d3d0d0;
   margin-right: 5px;
 }
 
-.sidebar-icons{
+.sidebar-icons {
   cursor: pointer;
+  border: none;
+  background-color: coral;
+  /* background-image: linear-gradient(315deg, #000000 0%, #414141 74%); */
+  color: white;
+  opacity: 0.3;
+
 }
 
-.sidebar-icons:hover{
+.sidebar-icons:hover {
   color: #c0b9b9;
+
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import Fixedsidebar from "./FixedSideBar";
 
-const Header = ({ handleSearchNote }) => {
+const Header = (props) => {
 
-
+    console.log(props);
 
     return (
         <nav className="navbar">
@@ -11,12 +11,12 @@ const Header = ({ handleSearchNote }) => {
                 <h1 className="navbar-brand ">Notes</h1>
                 <div className="d-flex align-items-center">
                     <form className="d-flex">
-                        <input onChange={(event) =>{ event.preventDefault(); handleSearchNote(event.target.value)}} className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                        
+                        <input onChange={(event) => { event.preventDefault(); props.handleSearchNote(event.target.value) }} className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+
                     </form>
-                    <Fixedsidebar/>
+                    <Fixedsidebar isgrouped={props.isgrouped} setG={props.setGrouped} />
                 </div>
-                
+
             </div>
         </nav>
     )

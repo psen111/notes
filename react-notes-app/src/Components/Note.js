@@ -1,6 +1,6 @@
 import { AiFillDelete } from "react-icons/ai";
 import { useRef } from 'react';
-
+import { default as D } from 'react-draggable';
 
 const Note = ({ editNoteHandler, id, text, date, handleDeleteNode, group, author, coloridx }) => {
     const authorInputRef = useRef(null);
@@ -67,28 +67,30 @@ const Note = ({ editNoteHandler, id, text, date, handleDeleteNode, group, author
 
     }
     return (
-        <div style={{
-            backgroundColor: colors[coloridx],
-        }} className="note" >
-            <div>
-                <h3 ref={groupInputRef} onDoubleClick={ondb2} contentEditable='false' onBlur={() => updateContent()}>{group}</h3>
-                <p ref={textInputRef} onDoubleClick={ondb1} contentEditable='false' onBlur={() => updateContent()}>{text}</p>
-            </div>
-
-            <div className="note-footer">
-                <div className="d-flex justify-content-between">
-                    <small>{date}</small>
-                    <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>{author}</small>
+        <D>
+            <div style={{
+                backgroundColor: colors[coloridx],
+            }} className="note" >
+                <div>
+                    <h3 ref={groupInputRef} onDoubleClick={ondb2} contentEditable='false' onBlur={() => updateContent()}>{group}</h3>
+                    <p ref={textInputRef} onDoubleClick={ondb1} contentEditable='false' onBlur={() => updateContent()}>{text}</p>
                 </div>
 
+                <div className="note-footer">
+                    <div className="d-flex justify-content-between">
+                        <small>{date}</small>
+                        <small ref={authorInputRef} onDoubleClick={ondb0} contentEditable='false' onBlur={() => updateContent()}>{author}</small>
+                    </div>
 
-                <AiFillDelete
-                    className="delete-icon"
-                    size='1.3em'
-                    onClick={() => handleDeleteNode(id)}
-                />
-            </div>
-        </div >
+
+                    <AiFillDelete
+                        className="delete-icon"
+                        size='1.3em'
+                        onClick={() => handleDeleteNode(id)}
+                    />
+                </div>
+            </div >
+        </D>
     );
 }
 
